@@ -374,7 +374,7 @@ fn allocate_glyph(
         } else {
             let (glyph_pos, image) = atlas.allocate((glyph_width, glyph_height));
             let anti_alias = true;
-            let anti_alias_threashold = 0.5;
+            let anti_alias_threashold = 0.0;
 
             glyph.draw(|x, y, v| {
                 if v > 0.0 {

@@ -373,10 +373,22 @@ fn allocate_glyph(
             UvRect::default()
         } else {
             let (glyph_pos, image) = atlas.allocate((glyph_width, glyph_height));
+            let anti_alias = true;
+            let anti_alias_threashold = 0.9;
+
             glyph.draw(|x, y, v| {
                 if v > 0.0 {
                     let px = glyph_pos.0 + x as usize;
                     let py = glyph_pos.1 + y as usize;
+                    let v = if anti_alias {
+                        if v > anti_alias_threashold {
+                            1.0
+                        } else {
+                            0.0
+                        }
+                    } else {
+                        v
+                    };
                     image[(px, py)] = v;
                 }
             });

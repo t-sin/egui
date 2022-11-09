@@ -49,7 +49,7 @@ egui = { version = "0.17.0", path = "../egui", default-features = false, feature
 ] }
 instant = { version = "0.1", features = ["wasm-bindgen"] }
 tracing = "0.1"
-winit = { git = "https://github.com/t-sin/winit", branch = "with-parent-window-in-x11" }
+winit = { git = "https://github.com/t-sin/winit", branch = "soyboy-sp/parent-window-patch" }
 
 epi = { version = "0.17.0", path = "../epi", optional = true }
 
